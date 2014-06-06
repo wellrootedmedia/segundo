@@ -1,0 +1,59 @@
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 900px;
+}
+
+h4 {
+    margin-top: 25px;
+}
+.row {
+    margin-bottom: 20px;
+}
+.row .row {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+[class*="col-"] {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #eee;
+    border: 1px solid #ddd;
+    background-color: rgba(86,61,124,.15);
+    border: 1px solid rgba(86,61,124,.2);
+}
+
+hr {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+h1, .h1 {
+    font-size: 36px;
+    margin: 0;
+    padding: 0;
+}
+
+.col-md-12 {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+}
+
+.page-header {
+    padding-bottom: 0;
+    margin: 0;
+    border-bottom: 0;
+    padding-top: 90px;
+}
+
+.img-thumbnail {
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+}
+
+.navbar {
+    border-radius: 0;
+}

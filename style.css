@@ -1,0 +1,264 @@
+/*
+Theme Name: Segundo
+Theme URI: http://shawnnolan.com/themes/segundo
+Author: Shawn Nolan
+Author URI: http://shawnnolan.com & http://getbootstrap.com
+Description: The 2013 theme for WordPress takes us back to the blog, featuring a full range of post formats, each displayed beautifully in their own unique way. Design details abound, starting with a vibrant color scheme and matching header images, beautiful typography and icons, and a flexible layout that looks great on any device, big or small.
+Version: 0.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: responsive, wedding, photography, video, custom, responsive
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/* loading fonts */
+
+@font-face {
+    font-family: 'respective';
+    src: url('fonts/Respective.ttf');
+}
+
+
+
+
+html,
+body {
+    height: 100%;
+    /* The html and body elements cannot have any padding or margin. */
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    /*text-transform: uppercase;*/
+    background-color: #FFFFFF;
+}
+
+hr {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+h1, .h1 {
+    font-size: 36px;
+    margin: 0;
+    padding: 0;
+}
+
+h4 {
+    margin-top: 25px;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+/* Wrapper for page content to push down footer */
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by its height */
+    margin: 0 auto -60px;
+    /* Pad bottom by footer height */
+    padding: 0 0 60px;
+}
+
+
+.container {
+    width: auto;
+    max-width: 100%;
+    padding: 0 15px;
+}
+.container .credit {
+    margin: 20px 0;
+}
+
+/*.container {*/
+/*padding-left: 15px;*/
+/*padding-right: 15px;*/
+/*max-width: 100%;*/
+/*}*/
+
+.row {
+    margin-right: 70px;
+    margin-left: 70px;
+}
+
+
+.row .row {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+[class*="col-"] {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #eee;
+    border: 1px solid #ddd;
+    background-color: rgba(86,61,124,.15);
+    border: 1px solid rgba(86,61,124,.2);
+}
+
+.col-md-3 {
+    background-color: transparent;
+    border: 0;
+    text-align: center;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+}
+.col-md-3.light-grey {
+    background-color: lightgrey;
+}
+
+.col-md-3.dark-grey {
+    background-color: darkgray;
+}
+
+.col-md-12 {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+}
+
+.page-header {
+    padding-bottom: 0;
+    margin: 0;
+    border-bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+.page-header h1 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+.page-header h1 a {
+    font-size: 60px;
+    color: white;
+    text-decoration: none;
+    word-spacing: -30px;
+    font-family: 'Raleway', sans-serif;
+    font-variant: small-caps;
+    font-weight: 300;
+}
+.page-header .blogName span {
+    margin: 0;
+    padding: 0;
+}
+.first-letter {
+    color: lightgrey;
+    left: -1px;
+    position: relative;
+}
+.blogNameSeperator {
+    font-size: 110px;
+    position: relative;
+    top: 10px;
+    left: 0;
+    z-index: -9;
+    color: #428bca;
+    font-family: 'respective';
+}
+
+.img-thumbnail {
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+    height: 60px;
+    background-color: transparent;
+}
+
+#footer .container {
+    width: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 10px;
+}
+
+#footer .container .row {
+    margin-right: 70px;
+    margin-left: 68px;
+    margin-top: 0px;
+}
+
+#footer .container .row a .light-grey {
+    color: #000;
+}
+#footer .container .row a .dark-grey {
+    color: #fff;
+}
+
+#footer .credits .col-md-12 {
+    text-align: center;
+    padding-top: 10px;
+}
+
+#footer .credits a {
+    color: darkgray;
+    text-decoration: none;
+    letter-spacing: 4px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.footer-menu-title {
+    font-family: 'respective';
+    text-transform: lowercase;
+    font-size: 34px;
+}
+.footer-menu-desc {
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    font-size: 26px;
+    font-weight: lighter;
+}
+
+
+
+/* media queries */
+@media (max-width: 1535px) {
+
+}
+
+@media (max-width: 1024px) {
+    .footer-menu-desc {
+        font-size: 23px;
+    }
+}
+
+@media (max-width: 992px) {
+
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .col-md-3 {
+        width: 50%;
+        float: left;
+    }
+
+    #footer .container .row {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+
+@media (max-width: 499px) {
+
+    .col-md-3 {
+        width: 100%;
+        margin: 0;
+        margin-top: 3px;
+        border: 0;
+    }
+}
