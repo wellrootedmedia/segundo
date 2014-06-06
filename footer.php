@@ -1,111 +1,30 @@
-<?php
-$msShortVideo = get_page_by_title('ms short film');
-$msAlbumId = get_page_by_title( 'ms album' );
-$msAlbumUrl = get_post_meta( $msAlbumId->ID, 'AlbumUrl', true );
 
-function getVideoUrl($videoId) {
-    $msVimeoUrl = get_post_meta( $videoId, 'VimeoUrl', true );
-
-    return $msVimeoUrl;
-}
-
-function tagLink() {
-    $ctpc_options = get_option( 'ctpc_setting_values' );
-    $taglink = $ctpc_options['taglink'];
-
-    return $taglink;
-}
-
-?>
 </div> <!-- /container -->
 
 <div id="footer">
     <div class="container">
         <div class="row">
-            <?php if(get_page_by_title( 'ms the wedding' )) : ?>
-                <a href="<?php echo esc_url( get_permalink( get_page_by_title( 'ms the wedding' ) ) ); ?>">
-                    <div class="col-md-3 light-grey">
-                        <span class="footer-menu-title">The</span>
-                        <br/>
-                        <span class="footer-menu-desc">Wedding</span>
-                    </div>
-                </a>
-            <?php endif; ?>
 
-            <?php if(get_page_by_title( 'ms fusion album' )) : ?>
-                <a href="<?php echo esc_url( get_permalink( get_page_by_title( 'ms fusion album' ) ) ); ?>">
-                    <div class="col-md-3 dark-grey">
-                        <span class="footer-menu-title">Fusion</span>
-                        <br/>
-                        <span class="footer-menu-desc">Album</span>
-                    </div>
-                </a>
-            <?php endif; ?>
+            <?php $walker = new Menu_With_Description;
+            $defaults = array(
+                'theme_location'  => '',
+                'menu'            => 'MS Site menu',
+                'container'       => 'div',
+                'container_class' => '',
+                'container_id'    => '',
+                'menu_class'      => 'menu',
+                'menu_id'         => '',
+                'echo'            => true,
+                'fallback_cb'     => 'wp_page_menu',
+                'before'          => '',
+                'after'           => '',
+                'link_before'     => '',
+                'link_after'      => '',
+                'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                'depth'           => 0,
+                'walker'          => $walker
+            ); wp_nav_menu( $defaults ); ?>
 
-            <?php if(get_page_by_title( 'ms short film' ) && getVideoUrl($msShortVideo->ID)) : ?>
-                <a href="<?php echo getVideoUrl($msShortVideo->ID); ?>" class="video fancybox">
-                    <div class="col-md-3 light-grey">
-                        <span class="footer-menu-title">Short</span>
-                        <br/>
-                        <span class="footer-menu-desc">Film</span>
-                    </div>
-                </a>
-            <?php endif; ?>
-
-            <?php if(get_page_by_title('ms photogs')) : ?>
-                <a href="http://www.ctaylorphotos.com/about">
-                    <div class="col-md-3 dark-grey">
-                        <span class="footer-menu-title">meet the</span>
-                        <br/>
-                        <span class="footer-menu-desc">PHOTOGS</span>
-                    </div>
-                </a>
-            <?php endif; ?>
-
-            <?php if(get_page_by_title( 'ms engagement' )) : ?>
-                <a href="<?php echo esc_url( get_permalink( get_page_by_title( 'ms engagement' ) ) ); ?>">
-                    <div class="col-md-3 light-grey">
-                        <span class="footer-menu-title">view their</span>
-                        <br/>
-                        <span class="footer-menu-desc">ENGAGEMENT</span>
-                    </div>
-                </a>
-            <?php endif; ?>
-
-            <?php if(get_page_by_title( 'ms album' ) && $msAlbumUrl) : ?>
-                <a href="<?php echo $msAlbumUrl; ?>">
-                    <div class="col-md-3 dark-grey">
-                        <span class="footer-menu-title">the</span>
-                        <br/>
-                        <span class="footer-menu-desc">ALBUM</span>
-                    </div>
-                </a>
-            <?php endif; ?>
-
-            <?php if(get_page_by_title( 'ms blog' )) : ?>
-                <?php $displayLink = (tagLink()) ? "/tag/" . tagLink()
-                    : "/blog"; ?>
-                <a href="http://ctaylorphotos.com<?php echo $displayLink; ?>">
-                    <div class="col-md-3 light-grey">
-                        <span class="footer-menu-title">view the</span>
-                        <br/>
-                        <span class="footer-menu-desc">BLOG</span>
-                    </div>
-                </a>
-            <?php endif; ?>
-
-            <?php if(get_page_by_title('ms fusion slideshow')) : ?>
-                <a href="<?php echo esc_url( get_permalink( get_page_by_title( 'ms fusion slideshow' ) ) ); ?>">
-                    <div class="col-md-3 dark-grey">
-                        <span class="footer-menu-title">fusion</span>
-                        <br/>
-                        <span class="footer-menu-desc">SLIDESHOW</span>
-                    </div>
-                </a>
-            <?php endif; ?>
-
-        </div>
-        <div>
         </div>
     </div>
 
@@ -148,40 +67,47 @@ function tagLink() {
                 $(this).addClass('blogNameSeperator');
             }
         });
+
+
+        function isOdd(num) {
+            return ( num & 1 ) ? "odd" : "even";
+        }
+        $( ".menu li" ).each(function( index ) {
+            $(this).addClass(isOdd(parseInt(index)));
+        });
+
+
     });
 </script>
 
-<?php
-if (getVideoUrl($msShortVideo->ID)) : ?>
-    <!-- Add fancyBox -->
-    <script type="text/javascript"
-            src="<?php echo get_stylesheet_directory_uri(); ?>/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-    <!-- Optionally add helpers - button, thumbnail and/or media -->
-    <script type="text/javascript"
-            src="<?php echo get_stylesheet_directory_uri(); ?>/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
-    <script type="text/javascript"
-            src="<?php echo get_stylesheet_directory_uri(); ?>/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
-    <script type="text/javascript"
-            src="<?php echo get_stylesheet_directory_uri(); ?>/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
-    <script type="text/javascript">
-        jQuery(function ($) {
-            $('.fancybox')
-                .fancybox({
-                    openEffect: 'none',
-                    closeEffect: 'none',
-                    prevEffect: 'none',
-                    nextEffect: 'none',
-                    padding: 0,
-                    helpers: {
-                        media: {}
-                    },
-                    title: '',
-                    width: '720px',
-                    height: '410px'
-                });
-        });
-    </script>
-<?php endif; ?>
+<!-- Add fancyBox -->
+<script type="text/javascript"
+        src="<?php echo get_stylesheet_directory_uri(); ?>/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+<!-- Optionally add helpers - button, thumbnail and/or media -->
+<script type="text/javascript"
+        src="<?php echo get_stylesheet_directory_uri(); ?>/fancybox/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+<script type="text/javascript"
+        src="<?php echo get_stylesheet_directory_uri(); ?>/fancybox/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
+<script type="text/javascript"
+        src="<?php echo get_stylesheet_directory_uri(); ?>/fancybox/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+<script type="text/javascript">
+    jQuery(function ($) {
+        $('.fancybox')
+            .fancybox({
+                openEffect: 'none',
+                closeEffect: 'none',
+                prevEffect: 'none',
+                nextEffect: 'none',
+                padding: 0,
+                helpers: {
+                    media: {}
+                },
+                title: '',
+                width: '720px',
+                height: '410px'
+            });
+    });
+</script>
 
 
 
