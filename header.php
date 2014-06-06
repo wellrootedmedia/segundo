@@ -11,8 +11,7 @@ define(VIMEOID, $vimeoId);
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.png">
 
-    <title>Grid Template for Bootstrap</title>
-
+    <title><?php bloginfo('name'); ?></title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo get_stylesheet_directory_uri(); ?>/css/bootstrap.css" rel="stylesheet">
