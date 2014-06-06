@@ -139,15 +139,6 @@ function tagLink() {
             pagination: false
         });
 
-        $('#ms-slides').touchwipe({
-            wipeLeft: function() {
-                return false;
-            },
-            wipeRight: function() {
-                return false;
-            }
-        });
-
         $('.slidesjs-container').css('width', '100% !important');
 
         $(".page-header .blogName span").each(function (index, elem) {
