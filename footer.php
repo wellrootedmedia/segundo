@@ -68,12 +68,38 @@
             }
         });
 
-
         function isOdd(num) {
             return ( num & 1 ) ? "odd" : "even";
         }
         $( ".menu li" ).each(function( index ) {
             $(this).addClass(isOdd(parseInt(index)));
+        });
+
+        $.fn.divOffSet = function() {
+            var myLeft = $(".center").offset().left;
+            var myTop = $(".center").offset().top;
+            var myRight = myLeft + $(".center").outerWidth();
+            var myBottom = myTop + $(".center").outerHeight();
+            var viewportRight = $(window).width() + $(window).scrollLeft();
+            var viewportBottom = $(window).height() + $(window).scrollTop();
+            var x = (Math.round(viewportRight - myRight));
+            var rightSide = $('.right-side').css('width', x - 1);
+            //console.log("h: " + (viewportRight - myRight) + ", v: " + (viewportBottom - myBottom));
+            return rightSide;
+        }
+        $(".title .blogName span").each(function (index, elem) {
+            var thisIsIt = $(this).text();
+            if (thisIsIt == '&' && index == index) {
+                $(this).removeClass('first-letter');
+                $(this).addClass('blogNameSeperator');
+            }
+        });
+        new $.fn.divOffSet();
+        $(window).resize(function () {
+            var x = new jQuery.fn.divOffSet();
+        });
+        $('body').bind('contextmenu', function (e) {
+            return false;
         });
 
 
